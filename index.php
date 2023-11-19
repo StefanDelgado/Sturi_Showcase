@@ -34,16 +34,7 @@ if (isset($_POST['upload'])) {
 </head>
 
 <body>
-    <div id="content">
-        <form method="POST" action="" enctype="multipart/form-data">
-            <div class="form-group">
-                <input class="form-control" type="file" name="uploadfile" value="" />
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit" name="upload">UPLOAD</button>
-            </div>
-        </form>
-    </div>
+<a href="uploadPage.php"> Upload</a>
     <div id="display-image">
         <?php
         $query = "SELECT * FROM image";
