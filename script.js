@@ -26,6 +26,7 @@ function toggleState3() {
             tileItem.classList.add("tileItem");
             tileItem.style.background = "url(" + imgObject[i] + ")";
             tileItem.style.backgroundSize = "contain";
+            tileItem.style.backgroundRepeat = "no-repeat";
             tilesContainer.appendChild(tileItem);
         }
     };
@@ -41,12 +42,15 @@ function loadGallery() {
 
  let mainView = document.getElementById("mainView");
  mainView.style.background = "url(" + imgObject[mainImg] + ")";
+ mainView.style.backgroundSize = "cover";
 
  let leftView = document.getElementById("leftView");
  leftView.style.background = "url(" + imgObject[prevImg] + ")";
-  
+ leftView.style.backgroundSize = "cover";
+
  let rightView = document.getElementById("rightView");
  rightView.style.background = "url(" + imgObject[nextImg] + ")";
+ rightView.style.backgroundSize = "cover";
   
  let linkTag = document.getElementById("linkTag")
  linkTag.href = imgObject[mainImg];
