@@ -22,30 +22,59 @@ if (isset($_POST['upload'])) {
     }
 }
 
-?>
+$query = "SELECT filename FROM image";
+$result = mysqli_query($db, $query);
 
+$imageUrls = array();
+while ($row = mysqli_fetch_assoc($result)) {
+    $imageUrls[] ='http://localhost//WebDesign_BSITA-2/Github/Sturi_Showcase/image/' . $row['filename'];
+}
+$imageUrlsJson = json_encode($imageUrls);
+echo '<script>console.log(' . json_encode($imageUrls) . ')</script>';
+?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Sturi</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script defer src="script.js"></script>
+
+    <script>
+        // Include the encoded JSON in a JavaScript variable
+        let imgObject = <?php echo $imageUrlsJson; ?>;
+    </script>
 </head>
 
 <body>
 <a href="uploadPage.php"> Upload</a>
-    <div id="display-image">
-        <?php
-        $query = "SELECT * FROM image";
-        $result = mysqli_query($db, $query);
-        while ($data = mysqli_fetch_assoc($result)) {
-        ?>
-            <img src="./image/<?php echo $data['filename']; ?>">
-        <?php
-        }
-        ?>
+    <div id="container">
+      <div id="toggleContainer">
+         <label>Carousel</label>
+         <div id="toggle">
+           <div id="outer3">
+              <div id="slider3"></div>
+           </div>
+           <label>Tiles</label>
+        </div>
+      </div>
+      <div id="galleryView">
+        <div id="galleryContainer">
+           <div id="leftView"></div>
+           <button id="navLeft" class="navBtns"><i class="fas fa-arrow-left fa-3x"></i></button>
+           <a id="linkTag">
+              <div id="mainView"></div>
+           </a>
+           <div id="rightView"></div>
+           <button id="navRight" class="navBtns"><i class="fas fa-arrow-right fa-3x"></i></button>
+        </div>
+      </div>
+      <div id="tilesView">
+        <div id="tilesContainer"></div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

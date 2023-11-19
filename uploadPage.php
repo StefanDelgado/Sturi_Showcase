@@ -21,7 +21,7 @@ if (isset($_POST['upload'])) {
         header("Location: index.php");
         exit();
     } else {
-        echo "<h3> Failed to upload image!</h3>";
+        echo "<h3> Failed to upload!!! Please try again!</h3>";
     }
 }
 ?>
@@ -39,6 +39,9 @@ if (isset($_POST['upload'])) {
     <div id="content">
         <form method="POST" action="" enctype="multipart/form-data">
             <div class="form-group">
+                <br>
+                <h2>File to upload</h2>
+                Insert Image:
                 <input class="form-control" type="file" name="uploadfile" value="" />
             </div>
             <div class="form-group">
