@@ -6,6 +6,7 @@ function toggleState3() {
   let outer = document.getElementById("outer3");
   let slider = document.getElementById("slider3");
   let tilesContainer = document.getElementById("tilesContainer");
+  
   if (slider.classList.contains("active")) {
     slider.classList.remove("active");
     outer.classList.remove("outerActive");
@@ -24,7 +25,7 @@ function toggleState3() {
         for (let i = 0; i < imgObject.length; i++) {
             let tileItem = document.createElement("div");
             tileItem.classList.add("tileItem");
-            tileItem.style.background = "url(" + imgObject[i] + ")";
+            tileItem.style.background = "url(" + imgObject[i].replace(/^\.\//, '') + ")";
             tileItem.style.backgroundSize = "contain";
             tileItem.style.backgroundRepeat = "no-repeat";
             tilesContainer.appendChild(tileItem);
@@ -41,15 +42,15 @@ let nextImg = 1;
 function loadGallery() {
 
  let mainView = document.getElementById("mainView");
- mainView.style.background = "url(" + imgObject[mainImg] + ")";
+ mainView.style.background = "url(" + imgObject[mainImg].replace(/^\.\//, '') + ")";
  mainView.style.backgroundSize = "cover";
 
  let leftView = document.getElementById("leftView");
- leftView.style.background = "url(" + imgObject[prevImg] + ")";
+ leftView.style.background = "url(" + imgObject[prevImg].replace(/^\.\//, '') + ")";
  leftView.style.backgroundSize = "cover";
 
  let rightView = document.getElementById("rightView");
- rightView.style.background = "url(" + imgObject[nextImg] + ")";
+ rightView.style.background = "url(" + imgObject[nextImg].replace(/^\.\//, '') + ")";
  rightView.style.backgroundSize = "cover";
   
  let linkTag = document.getElementById("linkTag")

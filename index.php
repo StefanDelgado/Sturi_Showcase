@@ -14,7 +14,7 @@ if (isset($_POST['upload'])) {
     // Execute query
     mysqli_query($db, $sql);
 
-    // Now let's move the uploaded image into the folder: image
+    // Now let's move the uploaded image into the folder: uploads
     if (move_uploaded_file($tempname, $folder)) {
         echo "<h3> Image uploaded successfully!</h3>";
     } else {
@@ -27,7 +27,7 @@ $result = mysqli_query($db, $query);
 
 $imageUrls = array();
 while ($row = mysqli_fetch_assoc($result)) {
-    $imageUrls[] ='http://localhost//WebDesign_BSITA-2/Github/Sturi_Showcase/image/' . $row['filename'];
+    $imageUrls[] = './image/' . $row['filename']; // Change the URL to the designated folder
 }
 $imageUrlsJson = json_encode($imageUrls);
 echo '<script>console.log(' . json_encode($imageUrls) . ')</script>';
@@ -45,7 +45,7 @@ echo '<script>console.log(' . json_encode($imageUrls) . ')</script>';
 
     <script>
         // Include the encoded JSON in a JavaScript variable
-        let imgObject = <?php echo $imageUrlsJson; ?>;
+        let imgObject = <?php echo $imageUrlsJson; ?>; 
     </script>
 </head>
 
