@@ -50,16 +50,35 @@ echo '<script>console.log(' . json_encode($imageUrls) . ')</script>';
 </head>
 
 <body>
-<a href="uploadPage.php"> Upload</a>
+
+<div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="content">
+        <form method="POST" action="" enctype="multipart/form-data">
+            <div class="form-group">
+                <input class="form-control" type="file" name="uploadfile" value="" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit" name="upload">UPLOAD</button>
+            </div>
+        </form>
+    </div>
+      </div>
+      </div>
     <div id="container">
+    
       <div id="toggleContainer">
+      <button id="myBtn">Upload</button>
          <label>Carousel</label>
          <div id="toggle">
            <div id="outer3">
               <div id="slider3"></div>
            </div>
            <label>Tiles</label>
-        </div>
+        </div>        
       </div>
       <div id="galleryView">
         <div id="galleryContainer">
