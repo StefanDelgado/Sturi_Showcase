@@ -57,6 +57,8 @@ function toggleState3() {
             tileItem.style.backgroundSize = "contain";
             tileItem.style.backgroundRepeat = "no-repeat";
             tilesContainer.appendChild(tileItem);
+            tileItem.style.width = 200;
+            tileItem.style.height = 200;
         }
     };
 }

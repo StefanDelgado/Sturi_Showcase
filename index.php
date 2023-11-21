@@ -93,6 +93,16 @@ echo '<script>console.log(' . json_encode($imageUrls) . ')</script>';
       </div>
       <div id="tilesView">
         <div id="tilesContainer"></div>
+        <?php
+        $query = "SELECT * FROM image" ;
+        $result = mysqli_query($db, $query) ;
+        while($data = mysqli_fetch_assoc($result)) {
+            ?>
+        
+        <a href="delete.php?id=<?php echo $data['ID']; ?>">x</a>
+        <?php
+        }
+        ?>
       </div>
     </div>
   </body>
